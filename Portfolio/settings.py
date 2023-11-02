@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+# settings.py
+from dotenv import load_dotenv
+load_dotenv()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,7 +29,7 @@ SECRET_KEY = '2hm&bx(h5eq*na)$i0hp01=e(3f6@dyt+_&z@b&drv#zgt_a!9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1']
 
 
 # Application definition
@@ -79,13 +83,13 @@ WSGI_APPLICATION = 'Portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'portfolio_db',
-        'USER': 'postgres',
-        'PASSWORD': 'db_password',
-        'HOST': 'localhost',
-        'PORT':'5432',
+        'NAME': os.environ.get("PGDATABASE"),
+        'USER': os.environ.get("PGUSER"),
+        'HOST': os.environ.get("PGHOST"),
+        'PASSWORD': os.environ.get("PGPASSWORD"),
     }
 }
+
 
 
 # Password validation
