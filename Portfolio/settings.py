@@ -83,10 +83,13 @@ WSGI_APPLICATION = 'Portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get("PGDATABASE"),
-        'USER': os.environ.get("PGUSER"),
-        'HOST': os.environ.get("PGHOST"),
-        'PASSWORD': os.environ.get("PGPASSWORD"),
+        #'POSTGRES_URL': os.environ.get("POSTGRES_URL"),
+        #'POSTGRES_PRISMA_URL': os.environ.get("POSTGRES_PRISMA_URL"),
+        #'POSTGRES_URL_NON_POOLING': os.environ.get("POSTGRES_URL_NON_POOLING"),
+        'NAME': os.environ.get("POSTGRES_DATABASE"),
+        'USER': os.environ.get("POSTGRES_USER"),
+        'HOST': os.environ.get("POSTGRES_HOST"),
+        'PASSWORD': os.environ.get("POSTGRES_PASSWORD"),
     }
 }
 
